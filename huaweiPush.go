@@ -12,9 +12,9 @@ import (
 	"strings"
 	"time"
 )
-const logFile string = "/data/log/goolink/huaweiPush.log"   //日志文件
-const token_session_path string= "/home/goolink/push_script/session/"
-const huawei_oauth2_url string = "https://login.cloud.huawei.com/oauth2/v2/token"
+const logFile string = "/yourPath/huaweiPush.log"   //日志文件
+const token_session_path string= "/yourPath/session/"  //存放access_token的文件
+const huawei_oauth2_url string = "https://login.cloud.huawei.com/oauth2/v2/token"  
 
 func init(){
 	Common.InitLog(logFile)
