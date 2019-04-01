@@ -252,7 +252,7 @@ func main(){
 
 	dataMap :=  Common.JsonToMap(dataStr)
 	client_id := dataMap["appkey"].(string)
-	auth2 := auth{"client_credentials",client_secret,client_id}
+	auth2 := &auth{"client_credentials",client_secret,client_id}
 
 	access_token,_ := auth2.getHuaweiOuth2Token()
 	stamp := time.Now().Unix()
@@ -265,7 +265,7 @@ func main(){
 
 	payloadJsoonStr := getHuaweiPayload(dataMap)
 
-	push := HuweiPush{access_token,"openpush.message.api.send",timestamp,string(tokenListJson),payloadJsoonStr}
+	push := &HuweiPush{access_token,"openpush.message.api.send",timestamp,string(tokenListJson),payloadJsoonStr}
 
 	huawei_push_url := push.getPushUrl(client_id)
 	resp, _ := push.httpPost(huawei_push_url,push.defaultForm())
